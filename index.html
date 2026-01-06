@@ -6,109 +6,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    * {
+    *{
       box-sizing: border-box;
       font-family: Arial, Helvetica, sans-serif;
     }
 
-    body {
+    body{
       margin: 0;
-      background: #eef3f4;
+      background-color: #eef2f3;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
     }
 
-    .login-container {
-      background: white;
-      padding: 30px 35px;
+    .login-box{
+      width: 380px;
+      background: #fff;
+      padding: 30px;
       border-radius: 12px;
-      max-width: 400px;
-      width: 100%;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
       text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
 
-    .logo {
-      width: 110px;
-      margin-bottom: 10px;
+    .logo{
+      width: 120px;
+      margin-bottom: 8px;
     }
 
-    h2 {
-      margin-top: 0;
-      margin-bottom: 20px;
-    }
-
-    .form-group {
-      margin-bottom: 18px;
+    .form-group{
       text-align: left;
+      margin-bottom: 15px;
     }
 
-    label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: bold;
-    }
-
-    input[type="text"],
-    input[type="password"] {
+    input{
       width: 100%;
       padding: 10px;
       border-radius: 6px;
       border: 1px solid #ccc;
     }
 
-    button {
+    button{
       width: 100%;
       padding: 10px;
       border-radius: 6px;
       border: none;
-      font-size: 16px;
-      cursor: pointer;
       background: #1c4cb3;
       color: white;
-    }
-
-    button:hover {
-      opacity: 0.9;
+      font-size: 16px;
+      cursor: pointer;
     }
   </style>
 </head>
 
 <body>
-  <div class="login-container">
 
-    <!-- Logo added here -->
-    <img src="logo.png" alt="College Logo" class="logo">
+  <div class="login-box">
+
+    <!-- Logo embedded directly (no external file needed) -->
+    <img
+      class="logo"
+      alt="College Logo"
+      src="data:image/png;base64,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"
+    >
 
     <h2>Login</h2>
 
-    <form action="#" method="POST">
+    <form>
       <div class="form-group">
-        <label for="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          placeholder="Enter your username"
-          required
-        />
+        <label>Username</label>
+        <input type="text" placeholder="Enter Username" required>
       </div>
 
       <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Enter your password"
-          required
-        />
+        <label>Password</label>
+        <input type="password" placeholder="Enter Password" required>
       </div>
 
       <button type="submit">Login</button>
     </form>
+
   </div>
+
 </body>
 </html>
+
